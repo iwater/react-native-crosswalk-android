@@ -1,0 +1,8 @@
+# Android
+#
+*.iml
+.idea
+.gradle
+.npmignore
+build
+local.properties
