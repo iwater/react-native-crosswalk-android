@@ -21,6 +21,7 @@ rm -f classes.jar
 
 ```bash
 npm install react-native-crosswalk-android --save
+cp ./node_modules/react-native-crosswalk-android/libs/xwalk_core_library-14.43.343.25.aar android/app/libs
 ```
 
 ### Add it to your android project
@@ -31,6 +32,22 @@ npm install react-native-crosswalk-android --save
 ...
 include ':react-native-crosswalk-android', ':app'
 project(':react-native-crosswalk-android').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-crosswalk-android')
+```
+
+* In `android/build.gradle`
+
+```gradle
+...
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        
+        flatDir {             // <------ add this line
+            dirs 'libs'       // <------ add this line
+        }                     // <------ add this line
+    }
+}
 ```
 
 * In `android/app/build.gradle`
