@@ -1,6 +1,6 @@
 package cn.tuofeng.rnwebview;
 
-import android.support.v4.app.FragmentActivity;
+import android.app.Activity;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -12,10 +12,10 @@ import java.util.*;
 
 
 public class RNWebViewPackage implements ReactPackage {
-    FragmentActivity mActivity;
+    Activity mActivity;
 
-    public RNWebViewPackage(FragmentActivity fragmentActivity) {
-        mActivity = fragmentActivity;
+    public RNWebViewPackage(Activity activity) {
+        mActivity = activity;
     }
 
     @Override

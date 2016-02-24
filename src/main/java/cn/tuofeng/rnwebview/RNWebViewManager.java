@@ -2,7 +2,6 @@ package cn.tuofeng.rnwebview;
 
 import android.app.Activity;
 import javax.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.util.AttributeSet;
 
 import org.xwalk.core.XWalkView;
@@ -20,11 +19,11 @@ public class RNWebViewManager extends SimpleViewManager<RNWebView> {
     public static final int GO_FORWARD = 2;
     public static final int RELOAD = 3;
 
-    FragmentActivity mActivity;
+    Activity mActivity;
 
-    public RNWebViewManager(FragmentActivity fragmentActivity) {
+    public RNWebViewManager(Activity activity) {
         super();
-        mActivity = fragmentActivity;
+        mActivity = activity;
     }
 
     @VisibleForTesting
