@@ -24,5 +24,5 @@ repositories {
 dependencies {
     provided 'com.android.support:appcompat-v7:23.0.1'
     provided 'com.facebook.react:react-native:0.13.+'
-    compile(name:'xwalk_core_library-14.43.343.25', ext:'aar')
+    compile(name:'xwalk_core_library-17.46.448.10', ext:'aar')
 }

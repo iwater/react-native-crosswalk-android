@@ -5,7 +5,7 @@ webview 替换成 crosswalk https://crosswalk-project.org/
 因为 crosswalk 包中包含的 javax* 会导致重复引用，需要在包中去掉 javax，下面的脚本可以得到一个不含 javax 包的 crosswalk aar 文件，需要放到 libs 目录下，脚本在 libs/getCrosswalk.sh 
 ```bash
 #!/bin/sh
-ver="14.43.343.25"
+ver="17.46.448.10"
 wget https://download.01.org/crosswalk/releases/crosswalk/android/maven2/org/xwalk/xwalk_core_library/${ver}/xwalk_core_library-${ver}.aar
 unzip -j xwalk_core_library-${ver}.aar classes.jar
 zip -d classes.jar javax\*
@@ -21,7 +21,7 @@ rm -f classes.jar
 
 ```bash
 npm install react-native-crosswalk-android --save
-cp ./node_modules/react-native-crosswalk-android/libs/xwalk_core_library-14.43.343.25.aar android/app/libs
+cp ./node_modules/react-native-crosswalk-android/libs/xwalk_core_library-17.46.448.10.aar android/app/libs
 ```
 
 ### Add it to your android project
