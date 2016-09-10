@@ -1,6 +1,7 @@
 /**
  * @providesModule WebViewAndroid
  */
+ 'use strict';
 try {
   var React = require('react');
 } catch(ex) {
