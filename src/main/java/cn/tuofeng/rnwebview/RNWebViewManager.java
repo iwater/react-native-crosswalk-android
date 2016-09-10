@@ -2,13 +2,10 @@ package cn.tuofeng.rnwebview;
 
 import android.app.Activity;
 import javax.annotation.Nullable;
-import android.util.AttributeSet;
-
-import org.xwalk.core.XWalkView;
-
+import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
-import com.facebook.react.uimanager.ReactProp;
 import com.facebook.react.common.annotations.VisibleForTesting;
 
 public class RNWebViewManager extends SimpleViewManager<RNWebView> {
@@ -19,11 +16,10 @@ public class RNWebViewManager extends SimpleViewManager<RNWebView> {
     public static final int GO_FORWARD = 2;
     public static final int RELOAD = 3;
 
-    Activity mActivity;
+    ReactApplicationContext rContext;
 
-    public RNWebViewManager(Activity activity) {
-        super();
-        mActivity = activity;
+    public RNWebViewManager(ReactApplicationContext reactApplicationContext) {
+        rContext = reactApplicationContext;
     }
 
     @VisibleForTesting
@@ -36,6 +32,7 @@ public class RNWebViewManager extends SimpleViewManager<RNWebView> {
 
     @Override
     public RNWebView createViewInstance(ThemedReactContext context) {
+        Activity mActivity = rContext.getCurrentActivity();
         return new RNWebView(context, mActivity);
         //xWalkWebView.setX(0);
         //xWalkWebView.setY(0);

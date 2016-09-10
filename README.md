@@ -60,32 +60,21 @@ dependencies {
 }
 ```
 
-* Register Module (in MainActivity.java)
+* Register Module (in MainApplication.java)
 
 ```java
 import cn.tuofeng.rnwebview.RNWebViewPackage;  // <--- import
 
-public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
+public class MainApplication extends Application implements ReactApplication {
   ......
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    mReactRootView = new ReactRootView(this);
-
-    mReactInstanceManager = ReactInstanceManager.builder()
-      .setApplication(getApplication())
-      .setBundleAssetName("index.android.bundle")
-      .setJSMainModuleName("index.android")
-      .addPackage(new MainReactPackage())
-      .addPackage(new RNWebViewPackage(this)) // <------ add this line to yout MainActivity class
-      .setUseDeveloperSupport(BuildConfig.DEBUG)
-      .setInitialLifecycleState(LifecycleState.RESUMED)
-      .build();
-
-    mReactRootView.startReactApplication(mReactInstanceManager, "AndroidRNSample", null);
-
-    setContentView(mReactRootView);
+  protected List<ReactPackage> getPackages() {
+    return Arrays.<ReactPackage>asList(
+          new MainReactPackage(),
+          .....
+          new RNWebViewPackage()// <------ add this line
+      );
   }
 
   ......
@@ -95,8 +84,13 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 
 ## Example
 ```javascript
-var React = require('react-native');
-var { StyleSheet } = React;
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 var WebViewAndroid = require('react-native-crosswalk-android');
 
@@ -153,6 +147,7 @@ var styles = StyleSheet.create({
     flex: 1,
   }
 });
+AppRegistry.registerComponent('your component', () => WebViewAndroidExample);
 ```
 
 ## Tips for Video (HTML5) inside WebView

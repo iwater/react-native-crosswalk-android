@@ -1,6 +1,6 @@
 {
   "name": "react-native-crosswalk-android",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Simple React Native Android module to use Crosswalk's WebView inside your app",
   "main": "index.js",
   "scripts": {
